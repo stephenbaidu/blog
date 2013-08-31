@@ -8,26 +8,3 @@
 @import "partials";
 @import "plugins/**/*";
 @import "custom/styles";
-
-.circular {
-	width: 130px;
-	height: 130px;
-	border-radius: 65px;
-	-webkit-border-radius: 65px;
-	-moz-border-radius: 65px;
-	background: url(/images/my-pic.jpg) no-repeat;
-	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-}
-
-.circular img {
-	opacity: 0;
-	filter: alpha(opacity=0);
-}
-
-#my_pic {
-	float: right;
-	margin-top: -96px;
-	margin-bottom: -31px;
-}
