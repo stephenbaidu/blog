@@ -50,5 +50,10 @@ body>header {
 
 // Nice line numbers
 table.CodeRay td {
-  padding: 2px;
+  padding: 1px;
+}
+
+// Transparent background
+.CodeRay, .CodeRay .line-numbers, .CodeRay .no {
+	background-color: transparent;
 }
