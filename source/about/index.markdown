@@ -7,3 +7,9 @@ sharing: true
 footer: true
 published: false
 ---
+
+~~~ ruby
+	def hello
+    puts "Hello!"
+  end
+~~~
