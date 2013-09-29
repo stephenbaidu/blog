@@ -23,7 +23,9 @@ class Pet
     puts "Hi, meet #{@name}, my lovely pet."
   end
 end
+~~~
 
+~~~ ruby
 # Cat inherits from Pet which is the superclass in this case
 class Cat < Pet
   def initialize(name, color)
@@ -40,7 +42,9 @@ class Cat < Pet
     self.bark
   end
 end
+~~~
 
+~~~ ruby
 # Dog is another subclass that inherits from Pet as well
 class Dog < Pet
   def initialize(name, color)
