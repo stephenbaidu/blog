@@ -33,13 +33,13 @@ class Cat < Pet
     super(name, color)
   end
 
-  def bark
-    puts "Woo"
+  def meow
+    puts "Meow"
   end
 
-  def bark_twice
-    self.bark
-    self.bark
+  def meow_twice
+    self.meow
+    self.meow
   end
 end
 ~~~
@@ -52,7 +52,7 @@ class Dog < Pet
   end
 
   def bark
-    puts "Woo"
+    puts "Woof"
   end
 
   def bark_twice
