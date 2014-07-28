@@ -17,7 +17,7 @@ end
 ~~~
 
 #### Bio
-Currently a Software Engineer, working towards creating systems with extreme intelligence. As such, AI & ML are my fields. I also have aspirations in the field of Divinity, so I love my Bible.
+Software Engineer with keen interest in Machine Learning, Artificial Intelligence & Computational Neuroscience. As a Software Engineer, am aim to create systems with extreme intelligence. I also have aspirations in the field of Divinity, so I love my Bible.
 
 #### Ok, enough talk
 >Since I believe in using the right tool for the right job, I have been a polyglot for sometime. Below are the languages I use and the purpose for which I use them.
