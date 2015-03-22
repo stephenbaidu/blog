@@ -4,7 +4,6 @@ date: 2013-08-31 23:15
 comments: false
 sharing: true
 footer: false
-published: false
 ---
 
 ~~~ ruby
