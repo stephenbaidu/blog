@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source "http://rubygems.org"
 
 gem 'rake', '~> 10.0'
 gem 'jekyll', '~> 2.0'
