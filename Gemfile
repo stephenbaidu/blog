@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-ruby "2.2.1"
+ruby "1.9.3"
 
 gem 'rake', '~> 10.0'
 gem 'jekyll', '~> 2.0'
