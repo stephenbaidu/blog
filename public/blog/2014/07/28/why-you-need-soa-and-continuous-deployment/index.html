@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Why you need SOA and Continuous Deployment - Stephen&#8217;s Blog</title>
+  <meta name="author" content="Stephen Baidu">
+
+  
+  <meta name="description" content="When everyone wants to do things their way, there will be chaos. If you work with developers vith various talents, you’ll understand the quote above &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://baidus.net/blog/2014/07/28/why-you-need-soa-and-continuous-deployment">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Stephen's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner">
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="Subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:baidus.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+  
+    
+      <h1 class="entry-title">Why You Need SOA and Continuous Deployment</h1>
+    
+  
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-28T21:33:00+00:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><blockquote>
+  <p>When everyone wants to do things their way, there will be chaos.</p>
+</blockquote>
+
+<p>If you work with developers vith various talents, you’ll understand the quote above. There is a way to leverage this scenario, and that is to have small teams take responsibilities of various aspects of your product(s). This encourages ownership hence, higher productivity. But you have to make sure there are solid structures in place. This brings us back to the topic “SOA (Service Oriented Architecture) and Continuous Deployment”. You can read more about SOAs by <a href="http://martinfowler.com/aboutMe.html">Martin Fowler</a> from <a href="http://martinfowler.com/articles/microservices.html">here</a>.</p>
+
+<p>We currently adviced our team to embrace Microservices(using this synonymously with SOAs) and Continuous Deployment. Though it was a bit difficult at the beginning, we are very happy now. Not only has productivity gone up, we are happier as developers. After the team was encouraged to look at <a href="https://www.docker.com/whatisdocker/">docker</a>, we settled on <a href="https://github.com/progrium/dokku">dokku</a> which is like a mini-Heroku, based on docker. As developers, we love to automate stuff, hence the reason for settling with something “similar” to <a href="https://www.heroku.com/">Heroku</a>.</p>
+
+<p>With this architecture, individual teams could decide on the languages and frameworks they want to use and we still get a unified environment for various services. <a href="">Docker</a> is a linux container engine and fun to play with. <a href="">Dokku</a> sits on top of this (with 100 lines of bash script), to deliver continuous git deployment. I suggest playing with docker for a while before moving to dokku, and you might not even want dokku for your use case. Dokku does not support multiple hosts, that’s why we are all waiting for <a href="https://flynn.io/">Flynn</a>, which currently has 15+ sponsors.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Stephen Baidu</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-28T21:33:00+00:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://baidus.net/blog/2014/07/28/why-you-need-soa-and-continuous-deployment/" data-via="" data-counturl="http://baidus.net/blog/2014/07/28/why-you-need-soa-and-continuous-deployment/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/09/02/recap-of-oop-concepts/" title="Previous Post: Recap Of OOP Concepts">&laquo; Recap Of OOP Concepts</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+	<h1>Our Daily Manna</h1>
+	<div class="verse-of-the-day">
+		<div id="ourmanna-verse">Loading&#8230;</div>
+		<script src="http://www.ourmanna.com/verses/api/js/" type="text/javascript"></script>
+	</div>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/28/why-you-need-soa-and-continuous-deployment/">Why you need SOA and Continuous Deployment</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/02/recap-of-oop-concepts/">Recap Of OOP Concepts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/30/when-they-are-gone/">When They Are Gone</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/29/why-we-blog/">Why We Blog</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/stephenbaidu">@stephenbaidu</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'stephenbaidu',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/107922900205234529191?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Stephen Baidu <br/>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>, customized with <a href="https://github.com/mjhea0/whiterspace">whiterspace</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'baidusnet';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://baidus.net/blog/2014/07/28/why-you-need-soa-and-continuous-deployment/';
+        var disqus_url = 'http://baidus.net/blog/2014/07/28/why-you-need-soa-and-continuous-deployment/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

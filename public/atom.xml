@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Stephen's Blog]]></title>
+  <link href="http://baidus.net/atom.xml" rel="self"/>
+  <link href="http://baidus.net/"/>
+  <updated>2015-03-25T12:05:26+00:00</updated>
+  <id>http://baidus.net/</id>
+  <author>
+    <name><![CDATA[Stephen Baidu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Why you need SOA and Continuous Deployment]]></title>
+    <link href="http://baidus.net/blog/2014/07/28/why-you-need-soa-and-continuous-deployment/"/>
+    
+    <updated>2014-07-28T21:33:00+00:00</updated>
+    <id>http://baidus.net/blog/2014/07/28/why-you-need-soa-and-continuous-deployment</id>
+    
+    <content type="html"><![CDATA[<blockquote>
+  <p>When everyone wants to do things their way, there will be chaos.</p>
+</blockquote>
+
+<p>If you work with developers vith various talents, you’ll understand the quote above. There is a way to leverage this scenario, and that is to have small teams take responsibilities of various aspects of your product(s). This encourages ownership hence, higher productivity. But you have to make sure there are solid structures in place. This brings us back to the topic “SOA (Service Oriented Architecture) and Continuous Deployment”. You can read more about SOAs by <a href="http://martinfowler.com/aboutMe.html">Martin Fowler</a> from <a href="http://martinfowler.com/articles/microservices.html">here</a>.</p>
+
+<p>We currently adviced our team to embrace Microservices(using this synonymously with SOAs) and Continuous Deployment. Though it was a bit difficult at the beginning, we are very happy now. Not only has productivity gone up, we are happier as developers. After the team was encouraged to look at <a href="https://www.docker.com/whatisdocker/">docker</a>, we settled on <a href="https://github.com/progrium/dokku">dokku</a> which is like a mini-Heroku, based on docker. As developers, we love to automate stuff, hence the reason for settling with something “similar” to <a href="https://www.heroku.com/">Heroku</a>.</p>
+
+<p>With this architecture, individual teams could decide on the languages and frameworks they want to use and we still get a unified environment for various services. <a href="">Docker</a> is a linux container engine and fun to play with. <a href="">Dokku</a> sits on top of this (with 100 lines of bash script), to deliver continuous git deployment. I suggest playing with docker for a while before moving to dokku, and you might not even want dokku for your use case. Dokku does not support multiple hosts, that’s why we are all waiting for <a href="https://flynn.io/">Flynn</a>, which currently has 15+ sponsors.</p>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Recap Of OOP Concepts]]></title>
+    <link href="http://baidus.net/blog/2013/09/02/recap-of-oop-concepts/"/>
+    
+    <updated>2013-09-02T18:39:00+00:00</updated>
+    <id>http://baidus.net/blog/2013/09/02/recap-of-oop-concepts</id>
+    
+    <content type="html"><![CDATA[<p>Wow, OOP (<a href="http://en.wikipedia.org/wiki/Object-oriented_programming#History">Object-Oriented Programming</a>) is way older than me and may be you. Well, how much of it’s concepts do we know. I’ll use the ruby code below to give a recap on some of the concepts in OOP.</p>
+
+<p>Out Pet class definition with two methods</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="keyword">class</span> <span class="class">Pet</span>
+  <span class="comment"># This method call creates both getters and setters for each variable passed</span>
+  attr_accessor <span class="symbol">:name</span>, <span class="symbol">:color</span>
+
+  <span class="keyword">def</span> <span class="function">initialize</span>(name, color)
+    <span class="instance-variable">@name</span>  = name
+    <span class="instance-variable">@color</span> = color
+  <span class="keyword">end</span>
+
+  <span class="keyword">def</span> <span class="function">greet</span>
+    puts <span class="string"><span class="delimiter">&quot;</span><span class="content">Hi, meet </span><span class="inline"><span class="inline-delimiter">#{</span><span class="instance-variable">@name</span><span class="inline-delimiter">}</span></span><span class="content">, my lovely pet.</span><span class="delimiter">&quot;</span></span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre></div>
+</div>
+</div>
+
+<p>The Cat class inherits from Pet and overrides the “greet” method</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Cat inherits from Pet which is the superclass in this case</span>
+<span class="keyword">class</span> <span class="class">Cat</span> &lt; <span class="constant">Pet</span>
+
+  <span class="keyword">def</span> <span class="function">greet</span>
+    puts <span class="string"><span class="delimiter">&quot;</span><span class="content">Meow</span><span class="delimiter">&quot;</span></span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre></div>
+</div>
+</div>
+
+<p>The Dog class inherits from Pet and overrides the “greet” method as well</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Dog is another subclass that inherits from Pet as well</span>
+<span class="keyword">class</span> <span class="class">Dog</span> &lt; <span class="constant">Pet</span>
+
+  <span class="keyword">def</span> <span class="function">greet</span>
+    puts <span class="string"><span class="delimiter">&quot;</span><span class="content">Woof</span><span class="delimiter">&quot;</span></span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre></div>
+</div>
+</div>
+
+<h3 id="objects--classes">Objects &amp; Classes</h3>
+<p>Objects model real-world objects and can be seen as “black boxes” that encapsulate attributes and behaviours. Eg, if “Pet” is the object, the attributes are name, color, etc. If “Dog” is the object, one unique behaviour is barking.</p>
+
+<p>Classes are the main stuff. You can think of them as templates or blueprints that objects immitate. Hence, an object is called “an instance” of a class. From the code above, Pet, Cat and Dog are classes.</p>
+
+<blockquote>
+  <p>Imagine you are filling a form, the blank form is analogous to a class whiles a filled form is analogous to an object. The blank form is a blueprint (Class), but the filled form is unique to you (Object). The code snippets below give examples of objects that are based on the classes defined above.</p>
+</blockquote>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Asuming we have a brown dog called Jack</span>
+<span class="comment"># Here we create an instance (jack) of the Dog class</span>
+jack = <span class="constant">Dog</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">Jack</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">Brown</span><span class="delimiter">&quot;</span></span>)
+
+<span class="comment"># Lets create another one</span>
+my_pet = <span class="constant">Cat</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">Pretty Pet</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">Black and White</span><span class="delimiter">&quot;</span></span>)
+</pre></div>
+</div>
+</div>
+
+<p>Classes have methods which define the behaviours of the object in question. Let’s take a look at the “greet” method on Pet.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># For &quot;jack&quot; which is a Dog,</span>
+jack.greet <span class="comment"># Prints &quot;Woof&quot;</span>
+
+<span class="comment"># For my_pet which is a Cat,</span>
+my_pet.greet <span class="comment"># Prints &quot;Meow&quot;</span>
+</pre></div>
+</div>
+</div>
+
+<h3 id="coming-next-are-inheritance-encapsulation-etc">Coming next are Inheritance, Encapsulation etc</h3>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[When They Are Gone]]></title>
+    <link href="http://baidus.net/blog/2013/08/30/when-they-are-gone/"/>
+    
+    <updated>2013-08-30T06:00:00+00:00</updated>
+    <id>http://baidus.net/blog/2013/08/30/when-they-are-gone</id>
+    
+    <content type="html"><![CDATA[<p>How we felt and how we are feeling now cannot change the fact that they are gone. Loosing our loved ones has always been painful but I take solace in the consoling words of Christ. They are in a better place and we will see them on that day.</p>
+
+<p>Today marks my mum’s one year but I just can’t believe it’s been a year already. When I think about it and how it all happened, it always brings up one question; how prepared am I to meet my maker. Beloved in the Lord, let’s prepare for His coming and live every second of our lives for Him and Him alone. My mum spent her life working for the Lord. She made me into what I am today, and I hope to follow her legacy.</p>
+
+<p>If you are reading this but not yet in Christ, pause and ask; why all this noise about Him. Well, if it is true (which we believe is), what will you do about it? You need no special abilities to ponder over this questions so just start pondering right away. Speak to Him and listen, you’ll be surprised at what you’ll hear. If you still do not agree with me, just pick up the gospel according to John and read it for fun. Keep asking, keep listening and you will understand.</p>
+
+<p>Dedicated to my dear mum (aka Davi) of blessed memory.</p>
+
+<p>God bless you for reading.</p>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Why We Blog]]></title>
+    <link href="http://baidus.net/blog/2013/08/29/why-we-blog/"/>
+    
+    <updated>2013-08-29T15:32:00+00:00</updated>
+    <id>http://baidus.net/blog/2013/08/29/why-we-blog</id>
+    
+    <content type="html"><![CDATA[<p>Though I appreciate blogs, it took me sometime to create mine. Knowing I&#8217;ve missed a lot, am here to make it up to myself. There are so many blogs out there that bring happiness into other&#8217;s lives but what really is the essence of blogging. I took the liberty of &#8220;googling&#8221; first before asking anyway. A good friend of mine will always &#8220;bing&#8221; it even if he were working in Google. :D</p>
+<p>If you are reading this, I would appreciate your comments on why you blog and the benefits you&#8217;ve seen so far. Hopefully, this will give someone a push to start that wonderful blog.</p>
+<p>As an avid lover of technology, I hope to tell others about my life which include things I did, things am doing and things I want to do.</p>
+<p>Thank you and enjoy the comments.</p>
+]]></content>
+    
+  </entry>
+  
+</feed>

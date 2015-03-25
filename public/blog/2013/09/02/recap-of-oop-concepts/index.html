@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Recap Of OOP Concepts - Stephen&#8217;s Blog</title>
+  <meta name="author" content="Stephen Baidu">
+
+  
+  <meta name="description" content="Wow, OOP (Object-Oriented Programming) is way older than me and may be you. Well, how much of it’s concepts do we know. I’ll use the ruby code below &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://baidus.net/blog/2013/09/02/recap-of-oop-concepts">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Stephen's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner">
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="Subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:baidus.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+  
+    
+      <h1 class="entry-title">Recap of OOP Concepts</h1>
+    
+  
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-02T18:39:00+00:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Wow, OOP (<a href="http://en.wikipedia.org/wiki/Object-oriented_programming#History">Object-Oriented Programming</a>) is way older than me and may be you. Well, how much of it’s concepts do we know. I’ll use the ruby code below to give a recap on some of the concepts in OOP.</p>
+
+<p>Out Pet class definition with two methods</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="keyword">class</span> <span class="class">Pet</span>
+  <span class="comment"># This method call creates both getters and setters for each variable passed</span>
+  attr_accessor <span class="symbol">:name</span>, <span class="symbol">:color</span>
+
+  <span class="keyword">def</span> <span class="function">initialize</span>(name, color)
+    <span class="instance-variable">@name</span>  = name
+    <span class="instance-variable">@color</span> = color
+  <span class="keyword">end</span>
+
+  <span class="keyword">def</span> <span class="function">greet</span>
+    puts <span class="string"><span class="delimiter">&quot;</span><span class="content">Hi, meet </span><span class="inline"><span class="inline-delimiter">#{</span><span class="instance-variable">@name</span><span class="inline-delimiter">}</span></span><span class="content">, my lovely pet.</span><span class="delimiter">&quot;</span></span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre></div>
+</div>
+</div>
+
+<p>The Cat class inherits from Pet and overrides the “greet” method</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Cat inherits from Pet which is the superclass in this case</span>
+<span class="keyword">class</span> <span class="class">Cat</span> &lt; <span class="constant">Pet</span>
+
+  <span class="keyword">def</span> <span class="function">greet</span>
+    puts <span class="string"><span class="delimiter">&quot;</span><span class="content">Meow</span><span class="delimiter">&quot;</span></span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre></div>
+</div>
+</div>
+
+<p>The Dog class inherits from Pet and overrides the “greet” method as well</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Dog is another subclass that inherits from Pet as well</span>
+<span class="keyword">class</span> <span class="class">Dog</span> &lt; <span class="constant">Pet</span>
+
+  <span class="keyword">def</span> <span class="function">greet</span>
+    puts <span class="string"><span class="delimiter">&quot;</span><span class="content">Woof</span><span class="delimiter">&quot;</span></span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre></div>
+</div>
+</div>
+
+<h3 id="objects--classes">Objects &amp; Classes</h3>
+<p>Objects model real-world objects and can be seen as “black boxes” that encapsulate attributes and behaviours. Eg, if “Pet” is the object, the attributes are name, color, etc. If “Dog” is the object, one unique behaviour is barking.</p>
+
+<p>Classes are the main stuff. You can think of them as templates or blueprints that objects immitate. Hence, an object is called “an instance” of a class. From the code above, Pet, Cat and Dog are classes.</p>
+
+<blockquote>
+  <p>Imagine you are filling a form, the blank form is analogous to a class whiles a filled form is analogous to an object. The blank form is a blueprint (Class), but the filled form is unique to you (Object). The code snippets below give examples of objects that are based on the classes defined above.</p>
+</blockquote>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Asuming we have a brown dog called Jack</span>
+<span class="comment"># Here we create an instance (jack) of the Dog class</span>
+jack = <span class="constant">Dog</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">Jack</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">Brown</span><span class="delimiter">&quot;</span></span>)
+
+<span class="comment"># Lets create another one</span>
+my_pet = <span class="constant">Cat</span>.new(<span class="string"><span class="delimiter">&quot;</span><span class="content">Pretty Pet</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">Black and White</span><span class="delimiter">&quot;</span></span>)
+</pre></div>
+</div>
+</div>
+
+<p>Classes have methods which define the behaviours of the object in question. Let’s take a look at the “greet” method on Pet.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># For &quot;jack&quot; which is a Dog,</span>
+jack.greet <span class="comment"># Prints &quot;Woof&quot;</span>
+
+<span class="comment"># For my_pet which is a Cat,</span>
+my_pet.greet <span class="comment"># Prints &quot;Meow&quot;</span>
+</pre></div>
+</div>
+</div>
+
+<h3 id="coming-next-are-inheritance-encapsulation-etc">Coming next are Inheritance, Encapsulation etc</h3>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Stephen Baidu</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-02T18:39:00+00:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://baidus.net/blog/2013/09/02/recap-of-oop-concepts/" data-via="" data-counturl="http://baidus.net/blog/2013/09/02/recap-of-oop-concepts/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/08/30/when-they-are-gone/" title="Previous Post: When They Are Gone">&laquo; When They Are Gone</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/07/28/why-you-need-soa-and-continuous-deployment/" title="Next Post: Why you need SOA and Continuous Deployment">Why you need SOA and Continuous Deployment &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+	<h1>Our Daily Manna</h1>
+	<div class="verse-of-the-day">
+		<div id="ourmanna-verse">Loading&#8230;</div>
+		<script src="http://www.ourmanna.com/verses/api/js/" type="text/javascript"></script>
+	</div>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/28/why-you-need-soa-and-continuous-deployment/">Why you need SOA and Continuous Deployment</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/02/recap-of-oop-concepts/">Recap Of OOP Concepts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/30/when-they-are-gone/">When They Are Gone</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/29/why-we-blog/">Why We Blog</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/stephenbaidu">@stephenbaidu</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'stephenbaidu',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/107922900205234529191?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Stephen Baidu <br/>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>, customized with <a href="https://github.com/mjhea0/whiterspace">whiterspace</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'baidusnet';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://baidus.net/blog/2013/09/02/recap-of-oop-concepts/';
+        var disqus_url = 'http://baidus.net/blog/2013/09/02/recap-of-oop-concepts/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
